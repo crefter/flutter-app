@@ -21,10 +21,7 @@ Git, IntelliJ IDEA CE, VS Code
 https://t.me/PGd_108
 krasnodobroval@gmail.com
 
-Языки
-
-Русский - родной
-Английский - A1 
+Языки : Русский - родной , Английский - A1 
 
 Образование
 
