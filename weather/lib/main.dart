@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_example_null_safety/bloc/weather_bloc.dart';
 import 'package:weather_example_null_safety/screens/first_screen.dart';
 
+/*
+
+
+*/
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,7 +15,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

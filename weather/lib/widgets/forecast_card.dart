@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:weather_example_null_safety/models/weather_forecast.dart';
-
 import '../utilities/forecast_util.dart';
+
+/*
+
+
+*/
 
 Widget forecastCard(List<WeatherList> list, int index) {
   var dayOfWeek = '';

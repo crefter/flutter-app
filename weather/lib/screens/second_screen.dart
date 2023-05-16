@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_example_null_safety/bloc/weather_bloc.dart';
 import 'package:weather_example_null_safety/screens/therty_screen.dart';
-
 import '../models/weather_forecast.dart';
 import '../widgets/city_view.dart';
 import '../widgets/data_weather.dart';
+
+/*
+
+
+*/
 
 class SecondScreen extends StatefulWidget {
   final String cityName;

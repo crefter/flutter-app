@@ -1,8 +1,12 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import '../models/weather_forecast.dart';
 import 'forecast_card.dart';
+
+/*
+
+
+*/
 
 class BottomListView extends StatelessWidget {
   final WeatherForecast snapshot;
