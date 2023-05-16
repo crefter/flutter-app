@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:weather_example_null_safety/models/weather_forecast_daily.dart';
+import 'package:weather_example_null_safety/models/weather_forecast.dart';
 
 import '../widgets/bottom_list_view.dart';
 

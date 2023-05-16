@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_example_null_safety/api/weather_api.dart';
-import 'package:weather_example_null_safety/models/weather_forecast_daily.dart';
+import 'package:weather_example_null_safety/models/weather_forecast.dart';
 
 class WeatherBloc extends Bloc<WeatherFetchEvent, WeatherState> {
   WeatherBloc() : super(WeatherStateEmpty()) {

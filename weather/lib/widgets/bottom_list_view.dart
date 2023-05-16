@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import '../models/weather_forecast_daily.dart';
+import '../models/weather_forecast.dart';
 import 'forecast_card.dart';
 
 class BottomListView extends StatelessWidget {
