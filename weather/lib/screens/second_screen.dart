@@ -38,6 +38,7 @@ class SecondScreenState extends State<SecondScreen> {
         title: const Text('Погода в городе'),
         centerTitle: true,
         actions: <Widget>[
+          //можно было использовать блок провайдер
           BlocConsumer<WeatherBloc, WeatherState>(listener: (context, state) {
             if (state is WeatherStateError) {
               var snackBar = SnackBar(
