@@ -5,11 +5,11 @@ import '../models/weather_forecast.dart';
 import '../utilities/constants.dart';
 
 /*
-здесь описывается метод который будет получать прогноз погоды по названию города
-чподключим 3 пакета 
-http - чтобы работать с запросами http 
-developer - чтобы видеть логи
-convert - чтобы ковертировать json
+здесь сам метод который будет получать прогноз погоды по названию города
+подключаем 3 пакета 
+  http - чтобы работать с запросами http 
+  developer - чтобы видеть логи
+  convert - чтобы ковертировать json
 
 метод асинхронный и в качестве параметра будет принимать название города  
 запрашиваем парметры запроса
@@ -28,7 +28,6 @@ class WeatherApi {
       'cnt': '3',
       'q': city
     };
-
 /*
 далее создаем переменную uri с данными запроса которая хранит класс Uri
 с конструктором https - передадим туда 3 параметра.
@@ -40,7 +39,6 @@ class WeatherApi {
 иначе если запрос не выполнен возвращаем ошибку - Error
 
 */
-
     var uri = Uri.https(Constants.WEATHER_BASE_URL_DOMAIN,
         Constants.WEATHER_FORECAST_PATH, parameters);
     log('request: ${uri.toString()}');

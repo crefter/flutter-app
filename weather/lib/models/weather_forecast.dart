@@ -1,5 +1,3 @@
-import '../utilities/constants.dart';
-
 class WeatherForecast {
   late City city;
   late String cod;
@@ -44,7 +42,6 @@ class WeatherForecast {
 class City {
   late int id;
   late String name;
-  late Coord coord;
   late String country;
   late int population;
   late int timezone;
@@ -52,7 +49,6 @@ class City {
   City({
     required this.id,
     required this.name,
-    required this.coord,
     required this.country,
     required this.population,
     required this.timezone,
@@ -61,8 +57,6 @@ class City {
   City.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    coord =
-        (json['coord'] != null ? Coord.fromJson(json['coord']) : null) as Coord;
     country = json['country'];
     population = json['population'];
     timezone = json['timezone'];
@@ -72,29 +66,9 @@ class City {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
-    data['coord'] = coord.toJson();
     data['country'] = country;
     data['population'] = population;
     data['timezone'] = timezone;
-    return data;
-  }
-}
-
-class Coord {
-  double? lon;
-  double? lat;
-
-  Coord({this.lon, this.lat});
-
-  Coord.fromJson(Map<String, dynamic> json) {
-    lon = json['lon'].toDouble();
-    lat = json['lat'].toDouble();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['lon'] = lon;
-    data['lat'] = lat;
     return data;
   }
 }
@@ -111,7 +85,6 @@ class WeatherList {
   late double speed;
   late int deg;
   late int clouds;
-  //late double rain;
 
   WeatherList({
     required this.dt,
@@ -125,7 +98,6 @@ class WeatherList {
     required this.speed,
     required this.deg,
     required this.clouds,
-    //required this.rain,
   });
 
   WeatherList.fromJson(Map<String, dynamic> json) {
@@ -147,7 +119,6 @@ class WeatherList {
     speed = json['speed'];
     deg = json['deg'];
     clouds = json['clouds'];
-    //rain = json['rain'];
   }
 
   Map<String, dynamic> toJson() {
@@ -163,12 +134,7 @@ class WeatherList {
     data['speed'] = speed;
     data['deg'] = deg;
     data['clouds'] = clouds;
-    //data['rain'] = this.rain;
     return data;
-  }
-
-  String getIconUrl() {
-    return Constants.WEATHER_IMAGES_URL + weather[0].icon + '.png';
   }
 }
 
@@ -191,11 +157,11 @@ class Temp {
 
   Temp.fromJson(Map<String, dynamic> json) {
     day = json['day'] as double;
-    min = json['min'].toDouble();
-    max = json['max'].toDouble();
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    min = json['min'];
+    max = json['max'];
+    night = json['night'];
+    eve = json['eve'];
+    morn = json['morn'];
   }
 
   Map<String, dynamic> toJson() {
@@ -225,9 +191,9 @@ class FeelsLike {
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
     day = json['day'];
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    night = json['night'];
+    eve = json['eve'];
+    morn = json['morn'];
   }
 
   Map<String, dynamic> toJson() {
@@ -244,20 +210,17 @@ class Weather {
   late int id;
   late String main;
   late String description;
-  late String icon;
 
   Weather({
     required this.id,
     required this.main,
     required this.description,
-    required this.icon,
   });
 
   Weather.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     main = json['main'];
     description = json['description'];
-    icon = json['icon'];
   }
 
   Map<String, dynamic> toJson() {
@@ -265,7 +228,6 @@ class Weather {
     data['id'] = id;
     data['main'] = main;
     data['description'] = description;
-    data['icon'] = icon;
     return data;
   }
 }

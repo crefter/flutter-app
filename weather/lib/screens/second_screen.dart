@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_example_null_safety/bloc/weather_bloc.dart';
 import 'package:weather_example_null_safety/screens/therty_screen.dart';
-
 import '../models/weather_forecast.dart';
 import '../widgets/city_view.dart';
 import '../widgets/data_weather.dart';
+
+/*
+второй экран
+
+создали метод
+создали стейт для города
+
+*/
 
 class SecondScreen extends StatefulWidget {
   final String cityName;
@@ -34,7 +41,9 @@ class SecondScreenState extends State<SecondScreen> {
           BlocConsumer<WeatherBloc, WeatherState>(listener: (context, state) {
             if (state is WeatherStateError) {
               var snackBar = SnackBar(
-                content: Text(state.message),
+                //  создаем переменную в случае отсутствия интернета или города в списке
+                content: Text(state
+                    .message), // будет выведено сообщение в снекбаре об ошибке
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }

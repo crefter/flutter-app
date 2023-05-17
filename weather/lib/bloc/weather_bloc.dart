@@ -3,20 +3,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_example_null_safety/api/weather_api.dart';
 import 'package:weather_example_null_safety/models/weather_forecast.dart';
 
+/*
+тут мы используем блок принимая событие и выдавая состояние
+используем функцию on которая реагирует на Event,ы которые мы передаем
+в дженерик и принимает в себя функцию колбеком _onSearchCity
+*/
+
 class WeatherBloc extends Bloc<WeatherFetchEvent, WeatherState> {
   WeatherBloc() : super(WeatherStateEmpty()) {
     on<SearchCity>(_onSearchCity);
   }
 
   void _onSearchCity(
-      WeatherFetchEvent event, Emitter<WeatherState> emitter) async {
+// эта функция имеет доступ к SearchCity, к событию и к эмиту который позволит нам менять состояние
+      WeatherFetchEvent event,
+      Emitter<WeatherState> emitter) async {
     WeatherForecast forecastObject;
 
     if (event is SearchCity) {
-      emit(WeatherStateLoading());
-
-      forecastObject = await WeatherApi()
-          .fetchWeatherForecast(city: event.cityQuery)
+      //если какие-то события пришли
+      forecastObject = await WeatherApi() // в классе апи вызываем метод
+          .fetchWeatherForecast(
+              city: event.cityQuery) // который принимает название города
           .then((forecastObject) {
         emit(WeatherStateLoaded(forecastObject: forecastObject));
         return forecastObject;
@@ -40,7 +48,6 @@ class SearchCity extends WeatherFetchEvent {
   const SearchCity({required this.cityQuery});
 }
 
-//
 abstract class WeatherState extends Equatable {
   const WeatherState();
 
@@ -61,6 +68,8 @@ class WeatherStateLoaded extends WeatherState {
   List<Object> get props => [forecastObject];
 }
 
+// класс который выводит сообщение об ошибке с переменной месседж и конструктором
+//
 class WeatherStateError extends WeatherState {
   final String message;
 

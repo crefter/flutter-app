@@ -1,8 +1,15 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import '../models/weather_forecast.dart';
 import 'forecast_card.dart';
+
+/*
+здесь мы отображаем данные о погоде за 3 дня используя ListView.separated
+чтобы отобразить в колонку данные и разделить их
+
+В getSortedList при помощи цикла выбираем из 3х дней температуру самую низкую
+и ставим этот день первым
+*/
 
 class BottomListView extends StatelessWidget {
   final WeatherForecast snapshot;
@@ -11,7 +18,7 @@ class BottomListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sortedList = getSortedList(snapshot.list!);
-    log(sortedList.length.toString());
+    // log(sortedList.length.toString());
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -52,7 +59,5 @@ List<WeatherList> getSortedList(List<WeatherList> list) {
   newList.removeAt(minIndex);
   newList.insert(0, list[minIndex]);
 
-  print(list);
-  print(newList);
   return newList;
 }
