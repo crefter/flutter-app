@@ -45,7 +45,6 @@ class SearchCity extends WeatherFetchEvent {
   const SearchCity({required this.cityQuery});
 }
 
-//
 abstract class WeatherState extends Equatable {
   const WeatherState();
 

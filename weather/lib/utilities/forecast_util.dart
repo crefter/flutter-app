@@ -1,31 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-/*
-
-
+/*Используем класс утил чтобы отобразить город и дату в нужном формате
+можно и не использовать но лучше видеть какой город мы видим
+пробовал отобразить в аппбаре но не получилось 
+оставлю это на будущее - не так просто как мне кажестся
+кто-то советовал использовать фризед - но с ним разбираться 
+не стал к тому же говорят что от него скоро избавяться в связи
+с обновлениями флатера
 */
 
 class Util {
   static String getFormattedDate(DateTime dateTime) {
-    return DateFormat('EEEE, MMM d, y').format(dateTime); // Tue, May 5, 2020
-  }
-
-  static getItem(IconData iconData, int value, String units) {
-    return Column(
-      children: <Widget>[
-        Icon(iconData, color: Colors.black87, size: 28.0),
-        const SizedBox(height: 10.0),
-        Text(
-          '$value',
-          style: const TextStyle(fontSize: 20.0, color: Colors.black87),
-        ),
-        const SizedBox(height: 10.0),
-        Text(
-          units,
-          style: const TextStyle(fontSize: 15.0, color: Colors.black87),
-        ),
-      ],
-    );
+    return DateFormat('EEEE, MMM d, y').format(dateTime);
   }
 }

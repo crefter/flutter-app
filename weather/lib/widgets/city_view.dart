@@ -4,7 +4,6 @@ import '../utilities/forecast_util.dart';
 
 /*
 
-
 */
 
 class CityView extends StatelessWidget {
