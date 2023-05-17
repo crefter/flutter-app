@@ -156,10 +156,6 @@ class WeatherList {
     data['clouds'] = clouds;
     return data;
   }
-
-  String getIconUrl() {
-    return Constants.WEATHER_IMAGES_URL + weather[0].icon + '.png';
-  }
 }
 
 class Temp {
