@@ -1,21 +1,3 @@
-import '../utilities/constants.dart';
-
-/*
-этот класс был сгенерирован при помощи нескольких сервисов а именно
-
-1 сайт https://openweathermap.org - там в разделе API мы выбрали 
-Дневной прогноз и взяли у него запрос по названию города - скопировали, 
-отреданировали и получили запрос который нам нужен
-http://api.openweathermap.org/data/2.5/forecast/daily?q=kirov&cnt=3&appid=1369dd6b5ae78fc9952261ab9aa236b4&units=metric
-
-2 сайт https://jsontodart.com - создал нам этот класс-файл который пришлось 
-отредактировать чтобы он корректно работал и не было ошибок.
-удалили данные о локации - ширина и долгота нам не потребуются
-
-
-
-*/
-
 class WeatherForecast {
   late City city;
   late String cod;
@@ -75,7 +57,6 @@ class City {
   City.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-
     country = json['country'];
     population = json['population'];
     timezone = json['timezone'];
@@ -138,7 +119,6 @@ class WeatherList {
     speed = json['speed'];
     deg = json['deg'];
     clouds = json['clouds'];
-    //rain = json['rain'];
   }
 
   Map<String, dynamic> toJson() {
@@ -177,11 +157,11 @@ class Temp {
 
   Temp.fromJson(Map<String, dynamic> json) {
     day = json['day'] as double;
-    min = json['min'].toDouble();
-    max = json['max'].toDouble();
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    min = json['min'];
+    max = json['max'];
+    night = json['night'];
+    eve = json['eve'];
+    morn = json['morn'];
   }
 
   Map<String, dynamic> toJson() {
@@ -211,9 +191,9 @@ class FeelsLike {
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
     day = json['day'];
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    night = json['night'];
+    eve = json['eve'];
+    morn = json['morn'];
   }
 
   Map<String, dynamic> toJson() {
@@ -230,20 +210,17 @@ class Weather {
   late int id;
   late String main;
   late String description;
-  late String icon;
 
   Weather({
     required this.id,
     required this.main,
     required this.description,
-    required this.icon,
   });
 
   Weather.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     main = json['main'];
     description = json['description'];
-    icon = json['icon'];
   }
 
   Map<String, dynamic> toJson() {
@@ -251,7 +228,6 @@ class Weather {
     data['id'] = id;
     data['main'] = main;
     data['description'] = description;
-    data['icon'] = icon;
     return data;
   }
 }

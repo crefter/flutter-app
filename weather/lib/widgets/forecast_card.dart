@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weather_example_null_safety/models/weather_forecast.dart';
-import '../utilities/forecast_util.dart';
+import '../models/weather_forecast.dart';
+import 'city_view.dart';
 
 /*
-
 
 */
 
 Widget forecastCard(List<WeatherList> list, int index) {
-  var dayOfWeek = '';
-  DateTime date = DateTime.fromMillisecondsSinceEpoch(list[index].dt * 1000);
-  var fullDate = Util.getFormattedDate(date);
-  dayOfWeek = fullDate; // Tue
+  var dayOfWeek = ''; // переменаая хранящая название дня недели
+  DateTime date = DateTime.fromMillisecondsSinceEpoch(
+      list[index].dt * 1000); // выводим сегодняшние данные места и времени
+  var fullDate = Util.getFormattedDate(
+      date); // переменаая хранящая данные сегодняшнего дня
+  dayOfWeek = fullDate;
   var tempMin = list[index].temp.min.toStringAsFixed(0);
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,

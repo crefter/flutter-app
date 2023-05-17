@@ -7,7 +7,10 @@ import '../widgets/city_view.dart';
 import '../widgets/data_weather.dart';
 
 /*
+второй экран
 
+создали метод
+создали стейт для города
 
 */
 
@@ -38,7 +41,9 @@ class SecondScreenState extends State<SecondScreen> {
           BlocConsumer<WeatherBloc, WeatherState>(listener: (context, state) {
             if (state is WeatherStateError) {
               var snackBar = SnackBar(
-                content: Text(state.message),
+                //  создаем переменную в случае отсутствия интернета или города в списке
+                content: Text(state
+                    .message), // будет выведено сообщение в снекбаре об ошибке
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
