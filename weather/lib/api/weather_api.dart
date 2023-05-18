@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import '../models/weather_forecast.dart';
-import '../utilities/constants.dart';
+import '../widgets/constants.dart';
 
 /*
 здесь сам метод который будет получать прогноз погоды по названию города
@@ -31,17 +31,17 @@ class WeatherApi {
 /*
 далее создаем переменную uri с данными запроса которая хранит класс Uri
 с конструктором https - передадим туда 3 параметра.
-далее в логе проверяем как отправился запрос переводим запрос в строку
-
-создаем запрос в переменной response  = используя метод get
-в который передаем переменную uri и смотрим какой ответ пришел в виде json
-потом проверяем если запрос успешен == 200 - то возвращаем и декодируем json
-иначе если запрос не выполнен возвращаем ошибку - Error
+далее в логе проверяем как отправился запрос и какой ответ получен
 
 */
     var uri = Uri.https(Constants.WEATHER_BASE_URL_DOMAIN,
         Constants.WEATHER_FORECAST_PATH, parameters);
     log('request: ${uri.toString()}');
+
+//создаем запрос в переменной response  = используя метод get
+// в который передаем переменную uri и смотрим какой ответ пришел в виде json
+// потом проверяем если запрос успешен == 200 - то возвращаем и декодируем json
+// иначе если запрос не выполнен возвращаем ошибку - Error
 
     var response = await http.get(uri);
     log('response: ${response.body}');

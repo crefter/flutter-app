@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:weather_example_null_safety/screens/second_screen.dart';
 
 /*
-первый экран - решил использовать стиль минимализма 
-
-для корректного отображения приложения все обернул в SafeArea
+первый экран
 для перехода между страницами используем стандартный Navigator с методами pop push
-так как мало страниц и стек не будет большим - на этом тут можно закончить.
+так как мало страниц и стек не будет большим
 */
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);

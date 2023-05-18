@@ -3,7 +3,7 @@ import '../models/weather_forecast.dart';
 import 'city_view.dart';
 
 /*
-
+виджет-карточки на 3 странице в которых отображаются данные прогноза погоды на 3 дня
 */
 
 Widget forecastCard(List<WeatherList> list, int index) {

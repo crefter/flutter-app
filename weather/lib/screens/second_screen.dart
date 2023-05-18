@@ -7,10 +7,8 @@ import '../widgets/city_view.dart';
 import '../widgets/data_weather.dart';
 
 /*
-второй экран
-
-создали метод
-создали стейт для города
+второй экран StatefulWidget имеет стейт и в нем инициализируется объект forecastObject
+в котором содержатся данные о погоде
 
 */
 
@@ -25,6 +23,9 @@ class SecondScreen extends StatefulWidget {
 class SecondScreenState extends State<SecondScreen> {
   late Future<WeatherForecast> forecastObject;
 
+// при инициализации состояния мы обращаемся к контексту ищем WeatherBloc
+//и добавляем туда события SearchCity
+//
   @override
   void initState() {
     super.initState();
@@ -38,12 +39,12 @@ class SecondScreenState extends State<SecondScreen> {
         title: const Text('Погода в городе'),
         centerTitle: true,
         actions: <Widget>[
-          //можно было использовать блок провайдер
+          // слушаем состояние WeatherBloc и реагируем на ошибку
           BlocConsumer<WeatherBloc, WeatherState>(listener: (context, state) {
             if (state is WeatherStateError) {
               var snackBar = SnackBar(
                 //  создаем переменную в случае отсутствия интернета или города в списке
-                content: Text(state
+                content: Text(state //
                     .message), // будет выведено сообщение в снекбаре об ошибке
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -59,7 +60,7 @@ class SecondScreenState extends State<SecondScreen> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return ThetyScreen(forecastObject: forecastObject);
+                      return ThetyScreen(weatherForecast: forecastObject);
                     }));
                   });
             } else {
@@ -67,7 +68,7 @@ class SecondScreenState extends State<SecondScreen> {
             }
           }),
         ],
-      ),
+      ), // в BlocBuilder отрисовываем данные о погоде если данные получены
       body: BlocBuilder<WeatherBloc, WeatherState>(
         builder: (context, state) {
           if (state is WeatherStateLoaded) {
@@ -78,7 +79,7 @@ class SecondScreenState extends State<SecondScreen> {
                   const SizedBox(height: 50.0),
                   CityView(snapshot: forecastObject),
                   const SizedBox(height: 50.0),
-                  DataWeather(snapshot: forecastObject),
+                  DataWeather(weatherForeCast: forecastObject),
                 ],
               ),
             );

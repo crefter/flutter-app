@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:weather_example_null_safety/models/weather_forecast.dart';
-import '../widgets/bottom_list_view.dart';
-
-/*
-
-
-*/
+import '../widgets/list_on_3_page_sort.dart';
 
 class ThetyScreen extends StatefulWidget {
-  final WeatherForecast forecastObject;
-  const ThetyScreen({super.key, required this.forecastObject});
+  final WeatherForecast weatherForecast;
+  const ThetyScreen({super.key, required this.weatherForecast});
 
   @override
   State<ThetyScreen> createState() => _ThetyScreenState();
@@ -24,7 +19,7 @@ class _ThetyScreenState extends State<ThetyScreen> {
         title: const Text('Погода на 3 дня'),
         centerTitle: true,
       ),
-      body: BottomListView(snapshot: widget.forecastObject),
+      body: WeatherListView(weatherForecast: widget.weatherForecast),
     );
   }
 }

@@ -3,11 +3,7 @@ import 'package:intl/intl.dart';
 import '../models/weather_forecast.dart';
 
 /*
-город можно отображать а можно и без него
-Но чтобы было более читабельно и понятно мы его все таки сделаем
-сделаем его в колонке
-тут мы создали 4 переменных которые хранят в себе информацию полученную 
-из джейсона
+отображаем город температуру влажность скорость ветра
 */
 
 class CityView extends StatelessWidget {
@@ -16,16 +12,16 @@ class CityView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var forecastList = snapshot.list; //
-    var city = snapshot.city.name; // название города
-    var country = snapshot.city.country; // название страны 2 заглавные буквы
+    var forecastList = snapshot.list;
+    var city = snapshot.city.name;
+    var country = snapshot.city.country;
     var formattedDate = // отображаем текущий день беря его из джейсона под индексом 0
-        DateTime.fromMillisecondsSinceEpoch(forecastList![0].dt *
-            1000); // умножаем на 1000 чтобы получать год наш
+        DateTime.fromMillisecondsSinceEpoch(
+            forecastList![0].dt * 1000); // умножаем на 1000 чтобы получить год
     return Column(
       children: <Widget>[
         Text(
-          '$city, $country', //формат отображения в 1 строчке 2 переменные
+          '$city, $country',
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 28.0,
@@ -33,7 +29,6 @@ class CityView extends StatelessWidget {
           ),
         ),
         Text(
-          // текст ниже показывающий текущую дату
           Util.getFormattedDate(formattedDate),
           style: const TextStyle(
             fontSize: 15.0,
@@ -45,13 +40,8 @@ class CityView extends StatelessWidget {
 }
 
 /*
-Используем класс утил чтобы отобразить город и дату в нужном формате
-можно и не использовать но лучше видеть какой город мы видим
-пробовал отобразить в аппбаре но не получилось 
-оставлю это на будущее - не так просто как мне кажестся
-кто-то советовал использовать фризед - но с ним разбираться 
-не стал к тому же говорят что от него скоро избавяться в связи
-с обновлениями флатера
+Используем класс Util чтобы отобразить город и дату в нужном формате
+мы используем DateFormat из пакета Intl
 */
 
 class Util {

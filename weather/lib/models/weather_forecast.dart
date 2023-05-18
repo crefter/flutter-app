@@ -1,3 +1,6 @@
+// класс был сгенерирован при помощи https://jsontodart.com
+//внесли свои измнения ,убрали лишнее
+
 class WeatherForecast {
   late City city;
   late String cod;

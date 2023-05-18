@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import '../models/weather_forecast.dart';
 
 /*
-
-
+2 экран с виджитами и переменными хранящие данные о погоде на текущий день
 */
 
 class DataWeather extends StatelessWidget {
-  final WeatherForecast snapshot;
-  const DataWeather({Key? key, required this.snapshot}) : super(key: key);
+  final WeatherForecast weatherForeCast;
+  const DataWeather({Key? key, required this.weatherForeCast})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var forecastList = snapshot.list;
+    var forecastList = weatherForeCast.list;
     var temp = forecastList?[0].temp.day.toStringAsFixed(0);
     var humidity = forecastList?[0].humidity.toStringAsFixed(0);
     var wind = forecastList?[0].speed.toStringAsFixed(0);
