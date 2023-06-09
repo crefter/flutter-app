@@ -1,16 +1,4 @@
 # bloc_example
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2 кнопки меняющие цвет квадрата
+<img width="360" alt="Снимок экрана 2023-06-09 в 12 50 19" src="https://github.com/IgorBond108/flutter-app/assets/116865573/7928f4df-ec1d-4001-b34e-cac835c851db">
+<img width="361" alt="Снимок экрана 2023-06-09 в 12 50 32" src="https://github.com/IgorBond108/flutter-app/assets/116865573/71fb20f6-b833-4768-900e-9ae2e6a89465">
