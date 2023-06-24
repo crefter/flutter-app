@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import 'left_box.dart';
+class DownButton extends StatelessWidget {
+  final VoidCallback onClicked;
 
-class DownButton extends StatefulWidget {
-  const DownButton({super.key});
+  DownButton({required this.onClicked, super.key});
 
-  @override
-  State<DownButton> createState() => _DownButtonState();
-}
-
-class _DownButtonState extends State<DownButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -19,10 +13,7 @@ class _DownButtonState extends State<DownButton> {
       iconSize: 150,
       onPressed: () {
         print('press');
-
-        setState(() {
-          const LeftBoxAnimation();
-        });
+        onClicked();
       },
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:make_a_choice/widgets/down_button.dart';
 import 'package:make_a_choice/widgets/left_box.dart';
 import 'package:make_a_choice/widgets/right_box.dart';
-import 'package:make_a_choice/widgets/up_row_three_widgets.dart';
 
 import 'widgets/list.dart';
 import 'widgets/text_up.dart';
@@ -31,16 +30,23 @@ class MainScreen extends StatefulWidget {
   }
 }
 
-bool startPosition = false;
-
 class MainScreenState extends State<MainScreen> {
   static const squareSize = 50.0;
+  late bool isOpenedLeft;
+  late bool isOpenedRight;
+
+  @override
+  void initState() {
+    super.initState();
+    isOpenedLeft = false;
+    isOpenedRight = false;
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'NerdFont'),
-      home: const Scaffold(
+      home: Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
@@ -60,11 +66,25 @@ class MainScreenState extends State<MainScreen> {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  LeftBoxAnimation(),
-                  RightBoxAnimation(),
+                  LeftBoxAnimation(onClicked: () {
+                    isOpenedLeft = !isOpenedLeft;
+                    setState(() {});
+                  }, isOpened: isOpenedLeft,),
+                  RightBoxAnimation(onClicked: () {
+                    isOpenedRight = !isOpenedRight;
+                    setState(() {});
+                  }, isOpened: isOpenedRight,),
                 ],
               ),
-              DownButton(),
+              DownButton(
+                onClicked: () {
+                  if (isOpenedLeft || isOpenedRight) {
+                    isOpenedLeft = false;
+                    isOpenedRight = false;
+                    setState(() {});
+                  }
+                },
+              ),
               ListDownScreen(),
             ],
           ),
