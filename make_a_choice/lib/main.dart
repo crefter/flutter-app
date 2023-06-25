@@ -66,14 +66,22 @@ class MainScreenState extends State<MainScreen> {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  LeftBoxAnimation(onClicked: () {
-                    isOpenedLeft = !isOpenedLeft;
-                    setState(() {});
-                  }, isOpened: isOpenedLeft,),
-                  RightBoxAnimation(onClicked: () {
-                    isOpenedRight = !isOpenedRight;
-                    setState(() {});
-                  }, isOpened: isOpenedRight,),
+                  SizedBox(
+                    width: 150,
+                    height: 150,
+                    child: LeftBoxAnimation(onClicked: () {
+                      isOpenedLeft = !isOpenedLeft;
+                      setState(() {});
+                    }, isOpened: isOpenedLeft,),
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 150,
+                    child: RightBoxAnimation(onClicked: () {
+                      isOpenedRight = !isOpenedRight;
+                      setState(() {});
+                    }, isOpened: isOpenedRight,),
+                  ),
                 ],
               ),
               DownButton(

@@ -7,22 +7,24 @@ class RightBoxAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedCrossFade(
-      duration: const Duration(seconds: 1),
-      crossFadeState:
-      isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-      firstChild: IconButton(
-          icon: Image.asset('assets/images/p-box.png'),
-          iconSize: 80,
-          onPressed: () {
-            onClicked();
-          }),
-      secondChild: IconButton(
-          icon: Image.asset('assets/images/p-box-o.png'),
-          iconSize: 150,
-          onPressed: () {
-            onClicked();
-          }),
+    return Center(
+      child: AnimatedCrossFade(
+        duration: const Duration(seconds: 1),
+        crossFadeState:
+        isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        firstChild: IconButton(
+            icon: Image.asset('assets/images/p-box.png'),
+            iconSize: 80,
+            onPressed: () {
+              onClicked();
+            }),
+        secondChild: IconButton(
+            icon: Image.asset('assets/images/p-box-o.png'),
+            iconSize: 150,
+            onPressed: () {
+              onClicked();
+            }),
+      ),
     );
   }
 }
