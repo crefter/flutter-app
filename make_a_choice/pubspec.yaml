@@ -28,6 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  firebase_auth: ^4.6.3
+  firebase_storage: ^11.2.4
+  firebase_messaging: ^14.6.4
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
   intl: ^0.18.1
   bloc: ^8.1.2
   flutter:
@@ -56,15 +61,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/Снимок экрана 2023-06-16 в 17.20.08.png
-    - assets/images/Снимок экрана 2023-06-16 в 17.53.05.png
-    - assets/images/b-box.png
-    - assets/images/b-box-o.png
-    - assets/images/p-box.png
-    - assets/images/p-box-o.png
-    - assets/images/Снимок экрана 2023-06-16 в 18.31.10.png
-    - assets/images/Снимок экрана 2023-06-16 в 18.40.42.png
-    - assets/images/Снимок экрана 2023-06-17 в 03.14.30.png
+    - assets/images/
     # - assets/fonts/
 
   # fonts:

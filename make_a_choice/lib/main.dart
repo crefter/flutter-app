@@ -2,11 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:make_a_choice/widgets/down_button.dart';
 import 'package:make_a_choice/widgets/left_box.dart';
 import 'package:make_a_choice/widgets/right_box.dart';
-
-import 'widgets/list.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'widgets/text_up.dart';
+import 'widgets/up_row_three_widgets.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //     options: const FirebaseOptions(
+  //   apiKey: 'AIzaSyA1v1QYGiuJRGU7Wn_TvzGE4-rzKn2KXcE',
+  //   appId: '1:1087427642123:android:0cc807f5016fd8dc02d80e',
+  //   messagingSenderId: '1087427642123',
+  //   projectId: 'tele2-dd7a8',
+  //   storageBucket: 'tele2-dd7a8.appspot.com',
+  // ));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -50,15 +64,19 @@ class MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            // mainAxisSize: MainAxisSize.max,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment
                 .spaceEvenly, // можно использовать если на размеры на планшете не совпадают и можно верхнюю строчку не прилеплять к верху экрана
             children: [
-              // UpRowThreeWidgets(),
-              SizedBox(
+              const UpRowThreeWidgets(),
+              const SizedBox(
                 height: 80,
               ),
-              TextUp(),
-              SizedBox(
+              const TextUp(
+                  // toggle: true,
+                  ),
+              const SizedBox(
                 height: 80,
               ),
               Row(
@@ -69,18 +87,24 @@ class MainScreenState extends State<MainScreen> {
                   SizedBox(
                     width: 150,
                     height: 150,
-                    child: LeftBoxAnimation(onClicked: () {
-                      isOpenedLeft = !isOpenedLeft;
-                      setState(() {});
-                    }, isOpened: isOpenedLeft,),
+                    child: LeftBoxAnimation(
+                      onClicked: () {
+                        isOpenedLeft = !isOpenedLeft;
+                        setState(() {});
+                      },
+                      isOpened: isOpenedLeft,
+                    ),
                   ),
                   SizedBox(
                     width: 150,
                     height: 150,
-                    child: RightBoxAnimation(onClicked: () {
-                      isOpenedRight = !isOpenedRight;
-                      setState(() {});
-                    }, isOpened: isOpenedRight,),
+                    child: RightBoxAnimation(
+                      onClicked: () {
+                        isOpenedRight = !isOpenedRight;
+                        setState(() {});
+                      },
+                      isOpened: isOpenedRight,
+                    ),
                   ),
                 ],
               ),
@@ -93,7 +117,7 @@ class MainScreenState extends State<MainScreen> {
                   }
                 },
               ),
-              ListDownScreen(),
+              // const ListDownScreen(),
             ],
           ),
         ),

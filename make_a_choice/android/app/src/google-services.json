@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1087427642123",
+    "project_id": "tele2-dd7a8",
+    "storage_bucket": "tele2-dd7a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087427642123:android:0cc807f5016fd8dc02d80e",
+        "android_client_info": {
+          "package_name": "com.example.make_a_choice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087427642123-1a4i59t7rmqa2a0pmbm54s9puoq5eet5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.make_a_choice",
+            "certificate_hash": "0dac5dc5b5cb3abd8b60c20f1009f428e31aedc6"
+          }
+        },
+        {
+          "client_id": "1087427642123-4mnqno3dan2iuvap1m1roekutbmua77r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1v1QYGiuJRGU7Wn_TvzGE4-rzKn2KXcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087427642123-4mnqno3dan2iuvap1m1roekutbmua77r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

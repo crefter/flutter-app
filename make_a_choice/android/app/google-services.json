@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "4179044129",
+    "project_id": "tele2app",
+    "storage_bucket": "tele2app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4179044129:android:3a011dd9bfc069d4770060",
+        "android_client_info": {
+          "package_name": "com.example.make_a_choice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4179044129-iq1cue1p9ofurs1onog727d5gh980bqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu84av_Xg0xGHa2gk6j1zXbI9KFprYhWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4179044129-iq1cue1p9ofurs1onog727d5gh980bqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
