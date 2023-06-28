@@ -12,7 +12,7 @@ class DownButton extends StatelessWidget {
           Image.asset('assets/images/Снимок экрана 2023-06-17 в 03.14.30.png'),
       iconSize: 150,
       onPressed: () {
-        print('press');
+        // print('press');
         onClicked();
       },
     );

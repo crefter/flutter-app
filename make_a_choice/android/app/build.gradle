@@ -43,11 +43,11 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion localProperties.getProperty('flutter.minSdkVersion')
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        muiltiDexEnabled true
+        // muiltiDexEnabled true
     }
 
     buildTypes {
