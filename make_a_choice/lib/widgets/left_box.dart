@@ -12,8 +12,6 @@ class LeftBoxAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    listPrises.shuffle();
-
     return Center(
       child: AnimatedCrossFade(
         duration: const Duration(seconds: 1),
@@ -33,7 +31,7 @@ class LeftBoxAnimation extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 iconSize: 300,
                 onPressed: () {
-                  // onClicked();
+                   onClicked();
                 }),
             Padding(
               padding: const EdgeInsets.only(right: 30, top: 40),

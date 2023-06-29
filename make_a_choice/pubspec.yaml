@@ -62,8 +62,8 @@ flutter:
 
   fonts:
     - family: NerdFont
-    - fonts:
-        - asset: assets/fonts
+      fonts:
+        - asset: assets/fonts/3270NerdFontPropo-Regular.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

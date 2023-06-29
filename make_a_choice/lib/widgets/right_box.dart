@@ -12,8 +12,6 @@ class RightBoxAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    listPrises.shuffle();
-
     return Center(
       child: AnimatedCrossFade(
         duration: const Duration(seconds: 1),
@@ -31,7 +29,9 @@ class RightBoxAnimation extends StatelessWidget {
             IconButton(
                 icon: Image.asset('assets/images/p-box-o.png'),
                 iconSize: 280,
-                onPressed: () {}),
+                onPressed: () {
+                  onClicked();
+                }),
             Padding(
               padding: const EdgeInsets.only(left: 45, top: 40),
               child: Text(

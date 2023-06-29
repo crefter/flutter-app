@@ -33,9 +33,41 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   static const squareSize = 50.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'NerdFont'),
+      home: FutureBuilder<List<String>>(
+          future: _getListPrises(),
+          initialData: const [],
+          builder: (context, snapshot) {
+            return snapshot.data!.isNotEmpty
+                ? HomeScreen(
+                    listPrises: snapshot.data!,
+                  )
+                : const SizedBox.shrink();
+          }),
+    );
+  }
+
+  Future<List<String>> _getListPrises() async {
+    return await ParseRemoteDatasource().getAllPrises();
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  final List<String> listPrises;
+
+  const HomeScreen({required this.listPrises, Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   late bool isOpenedLeft;
   late bool isOpenedRight;
-  late List<String> listPrises;
 
   @override
   void initState() {
@@ -46,82 +78,70 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(fontFamily: 'NerdFont'),
-        home: Scaffold(
-          backgroundColor: Colors.black,
-          body: SafeArea(
-            child: FutureBuilder<List<String>>(
-                future: _getListPrises(),
-                initialData: const [],
-                builder: (context, snapshot) {
-                  return snapshot.data!.isNotEmpty
-                      ? Column(
-                          // mainAxisSize: MainAxisSize.max,
-                          // crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment
-                              .spaceEvenly, // можно использовать если на размеры на планшете не совпадают и можно верхнюю строчку не прилеплять к верху экрана
-                          children: [
-                            const UpRowThreeWidgets(),
-                            const SizedBox(
-                              height: 80,
-                            ),
-                            const TextUp(
-                                // toggle: true,
-                                ),
-                            const SizedBox(
-                              height: 80,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              // crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                SizedBox(
-                                  width: 350,
-                                  height: 350,
-                                  child: LeftBoxAnimation(
-                                    onClicked: () {
-                                      isOpenedLeft = !isOpenedLeft;
-                                      setState(() {});
-                                    },
-                                    isOpened: isOpenedLeft,
-                                    listPrises: snapshot.data!,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 350,
-                                  height: 350,
-                                  child: RightBoxAnimation(
-                                    onClicked: () {
-                                      isOpenedRight = !isOpenedRight;
-                                      setState(() {});
-                                    },
-                                    isOpened: isOpenedRight,
-                                    listPrises: snapshot.data!,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            DownButton(
-                              onClicked: () {
-                                if (isOpenedLeft || isOpenedRight) {
-                                  isOpenedLeft = false;
-                                  isOpenedRight = false;
-                                  setState(() {});
-                                }
-                              },
-                            ),
-                            // const ListDownScreen(),
-                          ],
-                        )
-                      : const SizedBox.shrink();
-                }),
-          ),
-        ));
-  }
-
-  Future<List<String>> _getListPrises() async {
-    return await ParseRemoteDatasource().getAllPrises();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Column(
+          // mainAxisSize: MainAxisSize.max,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // можно использовать если на размеры на планшете не совпадают и можно верхнюю строчку не прилеплять к верху экрана
+          children: [
+            const UpRowThreeWidgets(),
+            const SizedBox(
+              height: 80,
+            ),
+            const TextUp(
+                // toggle: true,
+                ),
+            const SizedBox(
+              height: 80,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: LeftBoxAnimation(
+                    onClicked: () {
+                      isOpenedLeft = !isOpenedLeft;
+                      setState(() {});
+                    },
+                    isOpened: isOpenedLeft,
+                    listPrises: widget.listPrises,
+                  ),
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: RightBoxAnimation(
+                    onClicked: () {
+                      isOpenedRight = !isOpenedRight;
+                      setState(() {});
+                    },
+                    isOpened: isOpenedRight,
+                    listPrises: widget.listPrises,
+                  ),
+                ),
+              ],
+            ),
+            DownButton(
+              onClicked: () {
+                if (isOpenedLeft || isOpenedRight) {
+                  isOpenedLeft = false;
+                  isOpenedRight = false;
+                  setState(() {});
+                  widget.listPrises.shuffle();
+                }
+              },
+            ),
+            // const ListDownScreen(),
+          ],
+        ),
+      ),
+    );
   }
 }
