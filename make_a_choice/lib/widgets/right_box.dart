@@ -5,7 +5,10 @@ class RightBoxAnimation extends StatelessWidget {
   final List<String> listPrises;
   final bool isOpened;
   const RightBoxAnimation(
-      {required this.onClicked, required this.isOpened, super.key, required this.listPrises});
+      {required this.onClicked,
+      required this.isOpened,
+      super.key,
+      required this.listPrises});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,11 @@ class RightBoxAnimation extends StatelessWidget {
     return Center(
       child: AnimatedCrossFade(
         duration: const Duration(seconds: 1),
-        crossFadeState: isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState:
+            isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         firstChild: IconButton(
             icon: Image.asset('assets/images/p-box.png'),
-            iconSize: 80,
+            iconSize: 180,
             onPressed: () {
               onClicked();
             }),
@@ -25,10 +29,18 @@ class RightBoxAnimation extends StatelessWidget {
           alignment: Alignment.centerLeft,
           children: [
             IconButton(
-                icon: Image.asset('assets/images/p-box-o.png'), iconSize: 150, onPressed: () {}),
-            Text(
-              listPrises.last,
-              style: const TextStyle(color: Colors.white),
+                icon: Image.asset('assets/images/p-box-o.png'),
+                iconSize: 280,
+                onPressed: () {}),
+            Padding(
+              padding: const EdgeInsets.only(left: 45, top: 40),
+              child: Text(
+                listPrises.last,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
             ),
           ],
         ),

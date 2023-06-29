@@ -4,7 +4,6 @@ import 'package:make_a_choice/widgets/left_box.dart';
 import 'package:make_a_choice/widgets/parse_remote_datasourse.dart';
 import 'package:make_a_choice/widgets/right_box.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-
 import 'widgets/text_up.dart';
 import 'widgets/up_row_three_widgets.dart';
 
@@ -79,8 +78,8 @@ class MyAppState extends State<MyApp> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 SizedBox(
-                                  width: 150,
-                                  height: 150,
+                                  width: 350,
+                                  height: 350,
                                   child: LeftBoxAnimation(
                                     onClicked: () {
                                       isOpenedLeft = !isOpenedLeft;
@@ -91,8 +90,8 @@ class MyAppState extends State<MyApp> {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 150,
-                                  height: 150,
+                                  width: 350,
+                                  height: 350,
                                   child: RightBoxAnimation(
                                     onClicked: () {
                                       isOpenedRight = !isOpenedRight;

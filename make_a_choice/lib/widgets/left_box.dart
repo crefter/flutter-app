@@ -5,7 +5,10 @@ class LeftBoxAnimation extends StatelessWidget {
   final VoidCallback onClicked;
   final bool isOpened;
   const LeftBoxAnimation(
-      {required this.onClicked, required this.isOpened, super.key, required this.listPrises});
+      {required this.onClicked,
+      required this.isOpened,
+      super.key,
+      required this.listPrises});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,11 @@ class LeftBoxAnimation extends StatelessWidget {
     return Center(
       child: AnimatedCrossFade(
         duration: const Duration(seconds: 1),
-        crossFadeState: isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        crossFadeState:
+            isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         firstChild: IconButton(
             icon: Image.asset('assets/images/b-box.png'),
-            iconSize: 80,
+            iconSize: 180,
             onPressed: () {
               onClicked();
             }),
@@ -27,13 +31,17 @@ class LeftBoxAnimation extends StatelessWidget {
             IconButton(
                 icon: Image.asset('assets/images/b-box-o.png'),
                 alignment: Alignment.centerLeft,
-                iconSize: 150,
+                iconSize: 300,
                 onPressed: () {
                   // onClicked();
                 }),
-            Text(
-              listPrises.first,
-              style: const TextStyle(color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.only(right: 30, top: 40),
+              child: Text(listPrises.first,
+                  style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontStyle: FontStyle.normal)),
             ),
           ],
         ),

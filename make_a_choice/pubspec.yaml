@@ -30,7 +30,7 @@ environment:
 dependencies:
   parse_server_sdk_flutter: ^5.1.0
   intl: ^0.18.1
-  bloc: ^8.1.2
+  # bloc: ^8.1.2
   flutter:
     sdk: flutter
 
@@ -60,21 +60,10 @@ flutter:
     - assets/images/
     # - assets/fonts/
 
-  # fonts:
-  #   - family: NerdFont
-  #   - fonts:
-        # - asset: assets/fonts/3270NerdFont-Condensed.ttf
-      # weight: 500
-        # - asset: assets/fonts/3270NerdFont-Regular.ttf
-      # weight: 500
-        # - asset: assets/fonts/3270NerdFont-SemiCondensed.ttf
-      # weight: 500
-        # - asset: assets/fonts/3270NerdFontMono-Condensed.ttf
-      # weight: 500
-        # - asset: assets/fonts/3270NerdFontMono-Regular.ttf
-      # weight: 500
-        # - asset: assets/fonts/3270NerdFontMono-SemiCondensed.ttf
-      # weight: 500
+  fonts:
+    - family: NerdFont
+    - fonts:
+        - asset: assets/fonts
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -87,10 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: NerdFont
-      fonts:
-        - asset: assets/fonts/3270NerdFontPropo-Regular.ttf
+  # fonts:
+  #   - family: NerdFont
+  #     fonts:
+  #       - asset: assets/fonts/3270NerdFontPropo-Regular.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

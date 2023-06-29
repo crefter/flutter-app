@@ -4,16 +4,15 @@ class DownButton extends StatelessWidget {
   final VoidCallback onClicked;
 
   DownButton({required this.onClicked, super.key});
-
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon:
-          Image.asset('assets/images/Снимок экрана 2023-06-17 в 03.14.30.png'),
-      iconSize: 150,
+      icon: Image.asset('assets/images/clear.png'),
+      iconSize: 250,
       onPressed: () {
         // print('press');
         onClicked();
+//  listPrises.shuffle();
       },
     );
   }

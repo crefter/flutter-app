@@ -7,18 +7,18 @@ class UpRowThreeWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset("assets/images/Снимок экрана 2023-06-16 в 17.20.08.png",
-            width: 100),
-        const SizedBox(
-          width: 30,
-        ),
+        Image.asset("assets/images/4g.png", width: 100),
+        // const SizedBox(
+        //   width: 30,
+        // ),
         const TimeWidget(),
-        const SizedBox(
-          width: 30,
-        ),
-        Image.asset("assets/images/Снимок экрана 2023-06-16 в 17.53.05.png",
-            width: 100),
+        // const SizedBox(
+        //   width: 30,
+        // ),
+        Image.asset("assets/images/tele2.png", width: 100),
       ],
     );
   }

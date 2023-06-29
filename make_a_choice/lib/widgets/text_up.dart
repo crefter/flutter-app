@@ -5,7 +5,6 @@ class TextUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset("assets/images/Снимок экрана 2023-06-16 в 18.40.42.png",
-        width: 300);
+    return Image.asset("assets/images/make-a-choice.png", width: 500);
   }
 }
